@@ -9,10 +9,14 @@ module Form.Machine exposing (FormError, State(..), Event(..), Config, transitio
 import Validate
 
 
+{-| An error about one specific field.
+-}
 type alias FormError formField =
     ( formField, String )
 
 
+{-| The form machine can have 5 states.
+-}
 type State object objectField
     = Displaying object
     | Editing
@@ -24,6 +28,8 @@ type State object objectField
     | Unloaded
 
 
+{-| Events to move the machine from one state to another
+-}
 type Event object objectField customEvents
     = Create
     | Display object
@@ -34,6 +40,8 @@ type Event object objectField customEvents
     | Save
 
 
+{-| Custom handlers for the machine. Read [transition](#transition).
+-}
 type alias Config object objectField customEvents msg =
     { badTransition :
         Event object objectField customEvents

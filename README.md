@@ -43,20 +43,6 @@ perform event state =
             )
 
 
-transition : Event -> State -> Context -> ( State, Cmd msg )
-transition event state context =
-    Form.Machine.transition
-        { badTransition = logBadRobotFormTransition
-        , default = defaultRobot
-        , perform = perform
-        , save = Request.saveRobot context.apiEndpoint SavedRobot
-        , update = updateRobotField
-        , validator = robotValidator
-        }
-        event
-        state
-
-
 updateRobotField : Robot -> Robot.FormField -> Robot
 updateRobotField robot field =
     case field of
@@ -71,6 +57,20 @@ robotValidator : Validate.Validator ( Robot.FormField, String ) Robot
 robotValidator =
     Validate.all
         [ Validate.ifBlank .name ( Robot.FieldName "", "Please provide a name" ) ]
+
+
+transition : Event -> State -> Context -> ( State, Cmd msg )
+transition event state context =
+    Form.Machine.transition
+        { badTransition = logBadRobotFormTransition
+        , default = defaultRobot
+        , perform = perform
+        , save = Request.saveRobot context.apiEndpoint SavedRobot
+        , update = updateRobotField
+        , validator = robotValidator
+        }
+        event
+        state
 ```
 
 ## Links
