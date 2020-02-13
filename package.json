@@ -1,0 +1,19 @@
+{
+  "name": "elm-form-machine",
+  "version": "1.0.0",
+  "description": "A state machine to handle forms in elm.",
+  "homepage": "https://cedricsoulas.com/elm",
+  "author": "Cédric Soulas",
+  "main": "index.js",
+  "devDependencies": {
+    "elm": "latest-0.19.1",
+    "elm-format": "^0.8.1"
+  },
+  "scripts": {},
+  "repository": "https://github.com/cedricss/elm-form-machine",
+  "keywords": [
+    "elm",
+    "form",
+    "state machine"
+  ]
+}
