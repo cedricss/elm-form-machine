@@ -1,6 +1,6 @@
 {
   "name": "elm-form-machine",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A state machine to handle forms in elm.",
   "homepage": "https://cedricsoulas.com/elm",
   "author": "Cédric Soulas",

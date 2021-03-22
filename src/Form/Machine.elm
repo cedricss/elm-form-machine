@@ -106,7 +106,7 @@ transition config event state =
         ( Edit field, Editing edition ) ->
             ( Editing { edition | object = config.update edition.object field }, Cmd.none )
 
-        ( Fail message, Loading ) ->
+        ( Fail message, _ ) ->
             ( Failed message, Cmd.none )
 
         ( Perform customEvent, _ ) ->
